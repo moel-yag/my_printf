@@ -30,7 +30,7 @@ int	print_format(char specifier, va_list ap)
     else if (specifier == 'x' || specifier == 'X')
         check = ft_putnbr(va_arg(ap, unsigned int), 16,specifier == 'x' );
     else if (specifier == 'p')
-        check = ft_putaddr(va_arg(ap, unsigned int));
+        check = ft_putaddr(va_arg(ap, unsigned long));
 	else if (specifier == '%')
 	    check = ft_putchar('%');
     if (check < 0)
@@ -41,6 +41,8 @@ int	print_format(char specifier, va_list ap)
 
 int is_valid_format(const char *fmt)
 {
+    if (fmt == NULL)
+	return (0);
     while (*fmt!= '\0')
     {
         if (*fmt == '%')
