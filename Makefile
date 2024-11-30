@@ -19,7 +19,6 @@ clean :
 fclean :
 	rm -f $(NAME) $(FILES_O)
 
-re :
-	fclean all
+re : fclean all
 
 .PHONY : clean fclean re all
